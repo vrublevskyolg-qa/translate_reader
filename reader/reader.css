@@ -1,0 +1,48 @@
+/* Книжковий вигляд: вузька колонка-«сторінка», великий шрифт із засічками. */
+:root { --fs: 20px; }
+html { background: #e8e2d4; }
+body {
+  max-width: 36em;
+  margin: 28px auto !important;
+  padding: 48px 64px 80px !important;
+  background: #fffdf6;
+  color: #1f1f1f;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .18);
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: var(--fs) !important;
+  line-height: 1.65;
+}
+/* Оригінальні стилі задають 10–11px майже всьому — скидаємо до розміру сторінки */
+body :where(table, tr, td, th, p, div, span, a, li, ul, ol, dl, dt, dd, blockquote, font, i, b, em, strong) {
+  font-size: inherit !important;
+  font-family: inherit !important;
+}
+body p { text-align: justify; hyphens: auto; margin: 0 0 .8em; }
+body h1 { font-size: 1.7em !important; line-height: 1.25; }
+body h2 { font-size: 1.45em !important; line-height: 1.3; margin-top: 1.2em; }
+body h3 { font-size: 1.2em !important; }
+body h4, body h5 { font-size: 1.05em !important; }
+body pre, body code, body tt {
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: .82em !important;
+}
+body pre { white-space: pre-wrap; overflow-x: auto; }
+body img { max-width: 100%; height: auto; }
+body table.table td, body table.table th { padding: 4px 8px; }
+.b24-booktitle { font-size: 1.4em !important; font-weight: bold; }
+
+/* Панель і віконце перекладу мають власний розмір, незалежно від шрифту книжки */
+#tr-bar, #tr-pop { font-family: "Segoe UI", Arial, sans-serif !important; }
+#tr-bar, #tr-bar * { font-size: 13px !important; }
+#tr-pop { font-size: 15px !important; }
+#tr-pop * { font-size: inherit !important; font-family: inherit !important; }
+#tr-pop .main { font-size: 16px !important; }
+#tr-pop .src, #tr-pop .alt, #tr-pop button { font-size: 13px !important; }
+
+@media (max-width: 700px) {
+  body { margin: 0 !important; padding: 16px 16px 70px !important; box-shadow: none; }
+  body p { text-align: left; }
+  body ol, body ul { padding-left: 1.4em; }
+  body blockquote { margin-left: .8em; margin-right: 0; }
+  #tr-bar { left: 8px; right: 8px !important; justify-content: center; flex-wrap: wrap; }
+}
